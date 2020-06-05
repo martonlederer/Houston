@@ -1,2 +1,2 @@
 # Houston
- An advenced Deno logger, like Winston for Nodejs
+ An advanced [Deno](https://deno.land) logger, like Winston for Nodejs

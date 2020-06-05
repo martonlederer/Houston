@@ -7,5 +7,5 @@
  */
 
 export { Houston } from './src/Houston.ts'
-export { Options, Transport } from './src/types.ts'
-export { Color, Style, Background } from './src/lib/utils/StyleUtils.ts'
+export { ConsoleTransport } from './src/lib/transports/ConsoleTransport.ts'
+export { Options, Transport, LogLevel, Color, Style, Background } from './src/types.ts'

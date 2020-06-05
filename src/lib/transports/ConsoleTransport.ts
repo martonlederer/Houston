@@ -6,19 +6,47 @@
  * https://marton.lederer.hu
  */
 
-import { Transport } from '../../types.ts'
+import { Options, Transport, LogLevel, Color } from '../../types.ts'
 
+/*
+*
+* Console transport
+*
+* This will log all desired messages to your console
+*
+* @param level  The levels to log with this transport
+* @param options  Custom options for this transport. Same as the global options by default
+* @param color
+*
+* */
 export class ConsoleTransport implements Transport {
 
-  constructor () {
+  level: Array<LogLevel>
+  options: Options | undefined
 
+  /*
+  *
+  * Transport
+  *
+  * @param level  Only log levels that are included here, logs all by default
+  * @param options  Custom options, not required
+  *
+  * */
+  constructor (level: Array<LogLevel>, options?: Options) {
 
+    this.level = level
+    this.options = options
 
   }
 
-  log (level: number, message: string) {
+  log (level: LogLevel, message: string, options: Options): void {
 
+    if(typeof this.options === 'undefined')
+      this.options = options
 
+    for(const lvl in this.level)
+      if(this.level[lvl] === level)
+        console.log(message)
 
   }
 

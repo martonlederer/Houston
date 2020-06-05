@@ -1,3 +1,9 @@
-import { Color, Style } from '../mod.ts'
+import { Color, ConsoleTransport, Houston, LogLevel } from '../mod.ts'
 
-console.log(Color.Red + 'this is a test' + Style.Reset)
+const Logger = new Houston([
+
+  new ConsoleTransport([LogLevel.Info, LogLevel.Error])
+
+])
+
+Logger.log(LogLevel.Info, 'testttt')
