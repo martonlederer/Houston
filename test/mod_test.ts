@@ -2,9 +2,9 @@ import { ConsoleTransport, Format, Houston, LogLevel, LogLevelDisplay } from '..
 
 const Logger = new Houston([
 
-  new ConsoleTransport([LogLevel.Info, LogLevel.Success, LogLevel.Warning, LogLevel.Error])
+  new ConsoleTransport()
 
-], { logLevelDisplay: LogLevelDisplay.Icon })
+])
 
 Logger.log(LogLevel.Info, 'This is an info')
 Logger.log(LogLevel.Success, 'This is a success notice')

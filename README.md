@@ -49,6 +49,63 @@ Transports are different methods of logging. You need can add them to your logge
 |   WebTransport [W.I.P] |  This transport will send `PUT` requests containing you logs, to save on an external server  |
 
 ### Config
-The config is a set of custom options that modify the way your logs look. You can also use them individually when adding a new transport to the `Houston` instance
+The config is a set of custom options that modify the way your logs look. You can also use them with the transports, when adding one to the `Houston` instance
 
-... W.I.P.
+All the required types can be imported from `mod.ts`
+
+#### `format: Format`
+The format of the logs. Can be `text` or `json`
+
+`format: Format.json`
+
+#### `prefix: Prefix`
+The prefix of your logs. Can be `TimePrefix` (prints the time), `TextPrefix` (a custom prefix by you) or `NoPrefix` (no prefix before logs)
+
+You can also create your own `Prefix` implementation by importing `Prefix` from `main.ts` and extending it.
+
+###### Modifying the `TimePrefix` date format
+You can set the used time format for the `TimePrefix` to `TimeFormat.American` or `TimeFormat.European`
+
+`prefix: new TimePrefix(TimeFormat.American)`
+
+###### The `TextPrefix` prefix
+You can apply a custom text like this:
+
+`prefix: new TextPrefix('Your prefix')`
+
+#### `logLevelDisplay: LogLevelDisplay`
+You can customize what to display before the log message. This can be `LogLevelDisplay.Text` (prints the level of the log), `LogLevelDisplay.Icon` (prints an icon) or `LogLevelDisplay.Hidden` (no log level displaying).
+
+`LogLevelDisplay.Icon`
+
+#### `logColors: Record<LogLevel, Color>`
+The colors of the different log levels. All fields are required, if you want to change one
+
+```ts
+logColors: {
+
+    [LogLevel.Info]: Color.White,
+    [LogLevel.Success]: Color.Green,
+    [LogLevel.Warning]: Color.Yellow,
+    [LogLevel.Error]: Color.Red
+
+}
+```
+
+### Passing config to transports
+```ts
+const Logger = new Houston([
+
+  new ConsoleTransport(
+
+    //adding log levels
+    [LogLevel.Info, LogLevel.Success, LogLevel.Warning, LogLevel.Error],
+    
+    //passing a config
+    { logLevelDisplay: LogLevelDisplay.Icon }
+  
+  )
+
+])
+```
+If you don't pass a config to the transport, it will use the default config, determinated by the `Houston` instance

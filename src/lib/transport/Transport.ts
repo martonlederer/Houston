@@ -31,7 +31,7 @@ export class Transport implements ITransport{
   * @param config  Custom options, not required
   *
   * */
-  constructor (level: Array<LogLevel>, config?: Config | undefined) {
+  constructor (level: Array<LogLevel> = [LogLevel.Info, LogLevel.Success, LogLevel.Warning, LogLevel.Error], config?: Config | undefined) {
 
     this.level = level
     this.tempConfig = config
