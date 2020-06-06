@@ -6,7 +6,7 @@
  * https://marton.lederer.hu
  */
 
-import { Options, Transport, LogLevel, Color } from '../../types.ts'
+import { Options, Transport, LogLevel, Style } from '../../types.ts'
 
 /*
 *
@@ -53,7 +53,6 @@ export class ConsoleTransport implements Transport {
 
   }
 
-  //TODO
   /*
   *
   * Logging if the level is added to this transport
@@ -64,9 +63,12 @@ export class ConsoleTransport implements Transport {
   * */
   log (level: LogLevel, message: string): void {
 
+    if(typeof this.options === 'undefined')
+      return
+
     for(const lvl in this.level)
       if(this.level[lvl] === level)
-        console.log(message)
+        console.log(this.options.logColors[level] + '[' + this.options.prefix.getPrefix() + ']', level.toString() + ':', message + Style.Reset)
 
   }
 

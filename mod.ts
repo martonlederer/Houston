@@ -8,4 +8,6 @@
 
 export { Houston } from './src/Houston.ts'
 export { ConsoleTransport } from './src/lib/transports/ConsoleTransport.ts'
-export { Options, Transport, LogLevel, Color, Style, Background } from './src/types.ts'
+export * from './src/types.ts'
+export { Prefix } from './src/lib/prefix/Prefix.ts'
+export { TimePrefix } from './src/lib/prefix/prefixes/TimePrefix.ts'

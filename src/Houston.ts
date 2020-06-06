@@ -7,6 +7,7 @@
  */
 
 import { Color, Format, LogLevel, Options, Transport } from './types.ts'
+import { TimePrefix } from './lib/prefix/prefixes/TimePrefix.ts'
 
 /*
 *
@@ -33,6 +34,7 @@ export class Houston {
     options: Options = {
 
       format: Format.text,
+      prefix: new TimePrefix(),
       logColors: {
 
         [LogLevel.Info]: Color.White,

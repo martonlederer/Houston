@@ -2,7 +2,7 @@ import { ConsoleTransport, Houston, LogLevel } from '../mod.ts'
 
 const Logger = new Houston([
 
-  new ConsoleTransport([LogLevel.Info, LogLevel.Error])
+  new ConsoleTransport([LogLevel.Info, LogLevel.Error, LogLevel.Success, LogLevel.Warning])
 
 ])
 

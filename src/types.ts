@@ -6,15 +6,19 @@
  * https://marton.lederer.hu
  */
 
+import { Prefix } from './lib/prefix/Prefix.ts'
+
 /*
 *
 * Houston options object
 *
 * */
+
 export interface Options {
 
   format: Format
   logColors: Record<LogLevel, Color>
+  prefix: Prefix
 
 }
 
@@ -45,7 +49,7 @@ export interface Transport {
   * @param message  The log message
   *
   * */
-  log (level: number, message: string): void
+  log (level: LogLevel, message: string): void
 
 }
 
@@ -57,10 +61,10 @@ export interface Transport {
 
 export enum LogLevel {
 
-  Info,
-  Success,
-  Warning,
-  Error
+  Info = 'Info',
+  Success = 'Success',
+  Warning = 'Warning',
+  Error = 'Error'
 
 }
 
@@ -73,6 +77,18 @@ export enum Format {
 
   json,
   text
+
+}
+
+/*
+*
+* Time format for TimePrefix
+*
+* */
+export enum TimeFormat {
+
+  American = 'american',
+  European = 'european'
 
 }
 
