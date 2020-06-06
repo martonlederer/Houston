@@ -6,7 +6,7 @@
  * https://marton.lederer.hu
  */
 
-import { ITransport, LogLevel, LogLevelDisplay, LogLevelIcon, Style } from '../../../types.ts'
+import { ITransport, LogLevel, LogLevelDisplay, LogLevelIcon, Style, Format } from '../../../types.ts'
 import { Transport } from '../Transport.ts'
 
 /*
@@ -22,20 +22,63 @@ export class ConsoleTransport extends Transport implements ITransport {
 
     for(const lvl in this.level)
       if(this.level.hasOwnProperty(lvl) && this.level[lvl] === level && typeof this.options !== 'undefined')
-        console.log(
+        switch (this.options.format) {
 
-          this.options.logColors[level] +
+          case Format.json:
+            console.log(
 
-          (this.options.prefix.getPrefix() === '' ?
+              this.options.logColors[level] +
+              JSON.stringify({
 
-            '' :
-            ('[' + this.options.prefix.getPrefix() + ']')
+                prefix: (this.options.prefix.getPrefix() === '' ?
 
-          ), (this.options.logLevelDisplay === LogLevelDisplay.Text ?
+                  '' :
+                  ('[' + this.options.prefix.getPrefix() + ']')
 
-            (level.toString() + ':') : (this.options.logLevelDisplay === LogLevelDisplay.Icon ? LogLevelIcon[level] : '')
+                ),
 
-          ), message + Style.Reset)
+                logLevelDisplay: (this.options.logLevelDisplay === LogLevelDisplay.Text ?
+
+                  (level.toString() + ':') :
+
+                  (this.options.logLevelDisplay === LogLevelDisplay.Icon ?
+
+                    LogLevelIcon[level] :
+                    ''
+
+                  )
+
+                ),
+                logLevel: level.toString(),
+                message: message
+
+              }) +
+              Style.Reset
+
+            )
+            break
+
+          case Format.text:
+          default:
+            console.log(
+
+              this.options.logColors[level] +
+
+              (this.options.prefix.getPrefix() === '' ?
+
+                  '' :
+                  ('[' + this.options.prefix.getPrefix() + ']')
+
+              ), (this.options.logLevelDisplay === LogLevelDisplay.Text ?
+
+                  (level.toString() + ':') : (this.options.logLevelDisplay === LogLevelDisplay.Icon ? LogLevelIcon[level] : '')
+
+              ),
+
+              message + Style.Reset)
+              break
+
+        }
 
   }
 
