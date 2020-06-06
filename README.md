@@ -49,7 +49,7 @@ Logger.error('Error')
 As explained above, we can use the `Houston` instance to create a new logger. You can read about it's configuration below.
 
 ### Transports
-Transports are different methods of logging. You need can add them to your logger by including one when initializing
+Transports are different methods of logging. You can add them to your logger by including one when initializing
 
 |   Transport name       |   Description |
 |------------------------|---------------|
