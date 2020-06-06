@@ -4,7 +4,7 @@ const Logger = new Houston([
 
   new ConsoleTransport([LogLevel.Info, LogLevel.Success, LogLevel.Warning, LogLevel.Error])
 
-], { format: Format.json, logLevelDisplay: LogLevelDisplay.Icon })
+], { logLevelDisplay: LogLevelDisplay.Icon })
 
 Logger.log(LogLevel.Info, 'This is an info')
 Logger.log(LogLevel.Success, 'This is a success notice')

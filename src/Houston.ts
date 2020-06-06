@@ -25,7 +25,7 @@ export class Houston {
   *
   * @param format The format of the log. Default: Houston.text
   * @param transports The list of transports to use
-  * @param options  The options to use globally by default with all transports
+  * @param config  The options to use globally by default with all transports
   *
   * */
   constructor (transports: Array<ITransport>, config?: Config | undefined) {

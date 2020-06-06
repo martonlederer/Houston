@@ -28,7 +28,7 @@ export class Transport implements ITransport{
   * Transport
   *
   * @param level  Only log levels that are included here, logs all by default
-  * @param options  Custom options, not required
+  * @param config  Custom options, not required
   *
   * */
   constructor (level: Array<LogLevel>, config?: Config | undefined) {
