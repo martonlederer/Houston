@@ -19,6 +19,7 @@ export interface Options {
   format: Format
   logColors: Record<LogLevel, Color>
   prefix: Prefix
+  logLevelDisplay: LogLevelDisplay
   [key: string]: any
 
 }
@@ -33,6 +34,7 @@ export interface Config {
   format?: Format
   logColors?: Record<LogLevel, Color>
   prefix?: Prefix
+  logLevelDisplay?: LogLevelDisplay
   [key: string]: any
 
 }
@@ -50,7 +52,7 @@ export interface ITransport {
 
   /*
   *
-  * Applying the default options from Houston.ts, if there it custom options aren't applied already
+  * Applying the default options from Houston.ts, if custom options aren't applied already
   *
   * @param options  The default options
   *
@@ -81,6 +83,33 @@ export enum LogLevel {
   Success = 'Success',
   Warning = 'Warning',
   Error = 'Error'
+
+}
+
+/*
+*
+* How to display the log level
+*
+* */
+export enum LogLevelDisplay {
+
+  Text = 'text',
+  Icon = 'icon',
+  Hidden = 'hidden'
+
+}
+
+/*
+*
+* Log level icons
+*
+* */
+export enum LogLevelIcon {
+
+  Info = '🛈',
+  Success = '🗸',
+  Warning = '⚠',
+  Error = '✘'
 
 }
 

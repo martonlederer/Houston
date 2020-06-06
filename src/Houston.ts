@@ -6,7 +6,7 @@
  * https://marton.lederer.hu
  */
 
-import { Color, Format, LogLevel, Options, Config, ITransport } from './types.ts'
+import { Color, Format, LogLevel, Options, Config, ITransport, LogLevelDisplay } from './types.ts'
 import { TimePrefix } from './lib/prefix/prefixes/TimePrefix.ts'
 
 /*
@@ -35,6 +35,7 @@ export class Houston {
 
       format: Format.text,
       prefix: new TimePrefix(),
+      logLevelDisplay: LogLevelDisplay.Text,
       logColors: {
 
         [LogLevel.Info]: Color.White,

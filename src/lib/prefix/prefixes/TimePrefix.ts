@@ -40,7 +40,7 @@ export class TimePrefix extends Prefix {
 
       case TimeFormat.European:
       default:
-        return `${year}-${month}-${day} ${hours}-${minutes}-${seconds}`
+        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
 
     }
 

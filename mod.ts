@@ -11,3 +11,5 @@ export { ConsoleTransport } from './src/lib/transport/transports/ConsoleTranspor
 export * from './src/types.ts'
 export { Prefix } from './src/lib/prefix/Prefix.ts'
 export { TimePrefix } from './src/lib/prefix/prefixes/TimePrefix.ts'
+export { NoPrefix } from './src/lib/prefix/prefixes/NoPrefix.ts'
+export { TextPrefix } from './src/lib/prefix/prefixes/TextPrefix.ts'

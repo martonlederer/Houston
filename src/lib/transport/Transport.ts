@@ -6,7 +6,7 @@
  * https://marton.lederer.hu
  */
 
-import { ITransport, LogLevel, Options, Style } from '../../types.ts'
+import { ITransport, LogLevel, Options, Config } from '../../types.ts'
 
 /*
 *
@@ -21,6 +21,7 @@ export class Transport implements ITransport{
 
   level: Array<LogLevel>
   options: Options | undefined
+  tempConfig: Config | undefined
 
   /*
   *
@@ -30,24 +31,27 @@ export class Transport implements ITransport{
   * @param options  Custom options, not required
   *
   * */
-  constructor (level: Array<LogLevel>, options?: Options) {
+  constructor (level: Array<LogLevel>, config?: Config | undefined) {
 
     this.level = level
-    this.options = options
+    this.tempConfig = config
 
   }
 
   /*
   *
-  * Applying the default options from Houston.ts, if there it custom options aren't applied already
+  * Applying the default options from Houston.ts, if custom options aren't applied already
   *
   * @param options  The default options
   *
   * */
   applyDefaultOptions (options: Options) {
 
-    if(typeof this.options === 'undefined')
-      this.options = options
+    this.options = options
+
+    for(const option in this.tempConfig)
+      if(this.options.hasOwnProperty(option))
+        this.options[option] = this.tempConfig[option]
 
   }
 

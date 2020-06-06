@@ -6,7 +6,7 @@
  * https://marton.lederer.hu
  */
 
-import { ITransport, LogLevel, Style } from '../../../types.ts'
+import { ITransport, LogLevel, LogLevelDisplay, LogLevelIcon, Style } from '../../../types.ts'
 import { Transport } from '../Transport.ts'
 
 /*
@@ -22,7 +22,20 @@ export class ConsoleTransport extends Transport implements ITransport {
 
     for(const lvl in this.level)
       if(this.level.hasOwnProperty(lvl) && this.level[lvl] === level && typeof this.options !== 'undefined')
-        console.log(this.options.logColors[level] + '[' + this.options.prefix.getPrefix() + ']', level.toString() + ':', message + Style.Reset)
+        console.log(
+
+          this.options.logColors[level] +
+
+          (this.options.prefix.getPrefix() === '' ?
+
+            '' :
+            ('[' + this.options.prefix.getPrefix() + ']')
+
+          ), (this.options.logLevelDisplay === LogLevelDisplay.Text ?
+
+            (level.toString() + ':') : (this.options.logLevelDisplay === LogLevelDisplay.Icon ? LogLevelIcon[level] : '')
+
+          ), message + Style.Reset)
 
   }
 
