@@ -53,6 +53,25 @@ The config is a set of custom options that modify the way your logs look. You ca
 
 All the required types can be imported from `mod.ts`
 
+A full config object with all properties looks like this:
+```ts
+{
+
+    format: Format.text,
+    prefix: new TimePrefix(),
+    logLevelDisplay: LogLevelDisplay.Text,
+    logColors: {
+    
+        [LogLevel.Info]: Color.White,
+        [LogLevel.Success]: Color.Green,
+        [LogLevel.Warning]: Color.Yellow,
+        [LogLevel.Error]: Color.Red
+    
+    }
+
+}
+```
+
 #### `format: Format`
 The format of the logs. Can be `text` or `json`
 
@@ -109,3 +128,24 @@ const Logger = new Houston([
 ])
 ```
 If you don't pass a config to the transport, it will use the default config, determinated by the `Houston` instance
+
+## Screenshots
+`LogLevelDisplay.Icon`
+
+![withIcons](./screenshots/logs_with_icons.png)
+
+`LogLevelDisplay.Text`
+
+![withLabels](./screenshots/logs_with_labels.png)
+
+Custom colors
+
+![customColors](./screenshots/custom_colors.png)
+
+`new TextPrefix('Custom prefix')`
+
+![customPrefix](./screenshots/custom_prefix.png)
+
+`Format.json`
+
+![format](./screenshots/json_format.png)

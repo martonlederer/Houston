@@ -76,7 +76,6 @@ export interface ITransport {
 * Levels of the logs
 *
 * */
-
 export enum LogLevel {
 
   Info = 'Info',
