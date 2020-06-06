@@ -6,7 +6,7 @@
  * https://marton.lederer.hu
  */
 
-import { Color, Format, LogLevel, Options, Config, Transport } from './types.ts'
+import { Color, Format, LogLevel, Options, Config, ITransport } from './types.ts'
 import { TimePrefix } from './lib/prefix/prefixes/TimePrefix.ts'
 
 /*
@@ -16,7 +16,7 @@ import { TimePrefix } from './lib/prefix/prefixes/TimePrefix.ts'
 * */
 export class Houston {
 
-  private readonly transports: Array<Transport>
+  private readonly transports: Array<ITransport>
   private readonly options: Options
 
   /*
@@ -28,7 +28,7 @@ export class Houston {
   * @param options  The options to use globally by default with all transports
   *
   * */
-  constructor (transports: Array<Transport>, config?: Config | undefined) {
+  constructor (transports: Array<ITransport>, config?: Config | undefined) {
 
     this.transports = transports
     this.options = {

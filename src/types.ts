@@ -43,7 +43,7 @@ export interface Config {
 * Houston transport interface to implement
 *
 * */
-export interface Transport {
+export interface ITransport {
 
   level: Array<LogLevel>
   options: Options | undefined

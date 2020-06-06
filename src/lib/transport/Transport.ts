@@ -6,20 +6,18 @@
  * https://marton.lederer.hu
  */
 
-import { Options, Transport, LogLevel, Style } from '../../types.ts'
+import { ITransport, LogLevel, Options, Style } from '../../types.ts'
 
 /*
 *
-* Console transport
-*
-* This will log all desired messages to your console
+* Parent transport
 *
 * @param level  The levels to log with this transport
 * @param options  Custom options for this transport. Same as the global options by default
 * @param color
 *
 * */
-export class ConsoleTransport implements Transport {
+export class Transport implements ITransport{
 
   level: Array<LogLevel>
   options: Options | undefined
@@ -61,15 +59,6 @@ export class ConsoleTransport implements Transport {
   * @param message  The log message
   *
   * */
-  log (level: LogLevel, message: string): void {
-
-    if(typeof this.options === 'undefined')
-      return
-
-    for(const lvl in this.level)
-      if(this.level[lvl] === level)
-        console.log(this.options.logColors[level] + '[' + this.options.prefix.getPrefix() + ']', level.toString() + ':', message + Style.Reset)
-
-  }
+  log (level: LogLevel, message: string): void {}
 
 }
