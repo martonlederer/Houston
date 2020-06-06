@@ -6,7 +6,7 @@
  * https://marton.lederer.hu
  */
 
-import { Color, Format, LogLevel, Options, Config, ITransport, LogLevelDisplay } from './types.ts'
+import { Color, Config, Format, ITransport, LogLevel, LogLevelDisplay, Options } from './types.ts'
 import { TimePrefix } from './lib/prefix/prefixes/TimePrefix.ts'
 
 /*
@@ -72,6 +72,64 @@ export class Houston {
 
     for(const transport in this.transports)
       this.transports[transport].log(level, message)
+
+  }
+
+  /*
+  *
+  * Short log forms
+  *
+  * */
+
+  /*
+  *
+  * Log an info
+  *
+  * @param message  The log message
+  *
+  * */
+  info (message: string): void {
+
+    this.log(LogLevel.Info, message)
+
+  }
+
+  /*
+  *
+  * Log a success notice
+  *
+  * @param message  The log message
+  *
+  * */
+  success (message: string): void {
+
+    this.log(LogLevel.Success, message)
+
+  }
+
+  /*
+  *
+  * Log a warning
+  *
+  * @param message  The log message
+  *
+  * */
+  warning (message: string): void {
+
+    this.log(LogLevel.Warning, message)
+
+  }
+
+  /*
+  *
+  * Log an error
+  *
+  * @param message  The log message
+  *
+  * */
+  error (message: string): void {
+
+    this.log(LogLevel.Error, message)
 
   }
 

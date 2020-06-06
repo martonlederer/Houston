@@ -36,6 +36,15 @@ Logger.log(LogLevel.Warning, 'This is a warning')
 Logger.log(LogLevel.Error, 'This is an error')
 ```
 
+or if you want to use a shorter form:
+
+```ts
+Logger.info('Info')
+Logger.success('Success')
+Logger.warning('Warning')
+Logger.error('Error')
+```
+
 ## API
 As explained above, we can use the `Houston` instance to create a new logger. You can read about it's configuration below.
 
