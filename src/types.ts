@@ -19,8 +19,24 @@ export interface Options {
   format: Format
   logColors: Record<LogLevel, Color>
   prefix: Prefix
+  [key: string]: any
 
 }
+
+/*
+*
+* with optional fields
+*
+* */
+export interface Config {
+
+  format?: Format
+  logColors?: Record<LogLevel, Color>
+  prefix?: Prefix
+  [key: string]: any
+
+}
+
 
 /*
 *

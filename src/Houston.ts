@@ -6,7 +6,7 @@
  * https://marton.lederer.hu
  */
 
-import { Color, Format, LogLevel, Options, Transport } from './types.ts'
+import { Color, Format, LogLevel, Options, Config, Transport } from './types.ts'
 import { TimePrefix } from './lib/prefix/prefixes/TimePrefix.ts'
 
 /*
@@ -28,10 +28,10 @@ export class Houston {
   * @param options  The options to use globally by default with all transports
   *
   * */
-  constructor (
+  constructor (transports: Array<Transport>, config?: Config | undefined) {
 
-    transports: Array<Transport>,
-    options: Options = {
+    this.transports = transports
+    this.options = {
 
       format: Format.text,
       prefix: new TimePrefix(),
@@ -46,13 +46,14 @@ export class Houston {
 
     }
 
-  ) {
-
-    this.transports = transports
-    this.options = options
+    if(typeof config !== 'undefined')
+      for(const option in config)
+        if(this.options.hasOwnProperty(option))
+          this.options[option] = config[option]
 
     for(const transport in this.transports)
-      this.transports[transport].applyDefaultOptions(this.options)
+      if(this.transports.hasOwnProperty(transport))
+        this.transports[transport].applyDefaultOptions(this.options)
 
   }
 

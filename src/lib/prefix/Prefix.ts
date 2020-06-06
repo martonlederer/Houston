@@ -16,12 +16,26 @@ export class Prefix {
 
   }
 
+  /*
+  *
+  * Updating the prefix
+  *
+  * @param newPrefix  The prefix to update to
+  *
+  * */
   setPrefix (newPrefix: string): void {
 
     this.prefixText = newPrefix
 
   }
 
+  /*
+  *
+  * Getting the prefix
+  *
+  * @return prefix
+  *
+  * */
   getPrefix (): string {
 
     return this.prefixText
