@@ -39,10 +39,30 @@ export class ConsoleTransport implements Transport {
 
   }
 
-  log (level: LogLevel, message: string, options: Options): void {
+  /*
+  *
+  * Applying the default options from Houston.ts, if there it custom options aren't applied already
+  *
+  * @param options  The default options
+  *
+  * */
+  applyDefaultOptions (options: Options) {
 
     if(typeof this.options === 'undefined')
       this.options = options
+
+  }
+
+  //TODO
+  /*
+  *
+  * Logging if the level is added to this transport
+  *
+  * @param level  The level of the log message
+  * @param message  The log message
+  *
+  * */
+  log (level: LogLevel, message: string): void {
 
     for(const lvl in this.level)
       if(this.level[lvl] === level)

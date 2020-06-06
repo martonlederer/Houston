@@ -1,4 +1,4 @@
-import { Color, ConsoleTransport, Houston, LogLevel } from '../mod.ts'
+import { ConsoleTransport, Houston, LogLevel } from '../mod.ts'
 
 const Logger = new Houston([
 

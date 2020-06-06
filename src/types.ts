@@ -13,7 +13,8 @@
 * */
 export interface Options {
 
-  logColors: Array<Color>
+  format: Format
+  logColors: Record<LogLevel, Color>
 
 }
 
@@ -29,13 +30,22 @@ export interface Transport {
 
   /*
   *
+  * Applying the default options from Houston.ts, if there it custom options aren't applied already
+  *
+  * @param options  The default options
+  *
+  * */
+  applyDefaultOptions (options: Options): void
+
+  /*
+  *
   * Logging the message
   *
   * @param level  The level of the log, 0 by default
   * @param message  The log message
   *
   * */
-  log (level: number, message: string, options: Options): void
+  log (level: number, message: string): void
 
 }
 
@@ -50,7 +60,7 @@ export enum LogLevel {
   Info,
   Success,
   Warning,
-  Error,
+  Error
 
 }
 

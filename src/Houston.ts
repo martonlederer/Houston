@@ -12,14 +12,9 @@ import { Color, Format, LogLevel, Options, Transport } from './types.ts'
 *
 * Create a new Houston logger
 *
-* @param format The format of the log. Default: Houston.text
-* @param transports The list of transports to use
-* @param options  The options to use globally by default with all transports
-*
 * */
 export class Houston {
 
-  private readonly format: Format
   private readonly transports: Array<Transport>
   private readonly options: Options
 
@@ -27,29 +22,35 @@ export class Houston {
   *
   * Initialize the logger
   *
+  * @param format The format of the log. Default: Houston.text
+  * @param transports The list of transports to use
+  * @param options  The options to use globally by default with all transports
+  *
   * */
   constructor (
 
     transports: Array<Transport>,
-    format: Format = Format.text,
     options: Options = {
 
-      logColors: [
+      format: Format.text,
+      logColors: {
 
-        Color.White,
-        Color.Green,
-        Color.Yellow,
-        Color.Red
+        [LogLevel.Info]: Color.White,
+        [LogLevel.Success]: Color.Green,
+        [LogLevel.Warning]: Color.Yellow,
+        [LogLevel.Error]: Color.Red
 
-      ]
+      }
 
     }
 
   ) {
 
-    this.format = format
     this.transports = transports
     this.options = options
+
+    for(const transport in this.transports)
+      this.transports[transport].applyDefaultOptions(this.options)
 
   }
 
@@ -63,10 +64,11 @@ export class Houston {
   * @param message  The log message
   *
   * */
-  log (level: LogLevel, message: string) {
+  log (level: LogLevel, message: string): void {
 
     for(const transport in this.transports)
-      this.transports[transport].log(level, message, this.options)
+      this.transports[transport].log(level, message)
+
   }
 
 }
