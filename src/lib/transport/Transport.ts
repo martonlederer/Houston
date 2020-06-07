@@ -17,7 +17,7 @@ import { ITransport, LogLevel, Options, Config } from '../../types.ts'
 * @param color
 *
 * */
-export class Transport implements ITransport{
+export class Transport implements ITransport {
 
   level: Array<LogLevel>
   options: Options | undefined

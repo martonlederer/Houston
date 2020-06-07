@@ -7,8 +7,10 @@
  */
 
 export { Houston } from './src/Houston.ts'
-export { ConsoleTransport } from './src/lib/transport/transports/ConsoleTransport.ts'
 export * from './src/types.ts'
+export { Transport } from './src/lib/transport/Transport.ts'
+export { ConsoleTransport } from './src/lib/transport/transports/ConsoleTransport.ts'
+export { FileTransport } from './src/lib/transport/transports/FileTransport.ts'
 export { Prefix } from './src/lib/prefix/Prefix.ts'
 export { TimePrefix } from './src/lib/prefix/prefixes/TimePrefix.ts'
 export { NoPrefix } from './src/lib/prefix/prefixes/NoPrefix.ts'

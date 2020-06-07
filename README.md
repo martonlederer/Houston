@@ -57,6 +57,21 @@ Transports are different methods of logging. You can add them to your logger by 
 |   FileTransport [W.I.P]|  This transport will save your logs in a file    |
 |   WebTransport [W.I.P] |  This transport will send `PUT` requests containing you logs, to save on an external server  |
 
+#### Using `FileTransport`
+When you're using a FileTransport, an additional param is required to operate, the `logFolder` param.
+
+You can use it like this:
+```ts
+const Logger = new Houston([
+
+  new ConsoleTransport(),
+  new FileTransport('/home/marton/Downloads/logs')
+
+])
+```
+This will save log files to the desired folder. The file extension depends on the log format (json or text).
+***Make sure to add the `--allow-write` and `--allow-read` flags when running your code, so Houston can access the log files.***
+
 ### Config
 The config is a set of custom options that modify the way your logs look. You can also use them with the transports, when adding one to the `Houston` instance
 
