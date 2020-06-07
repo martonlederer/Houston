@@ -54,7 +54,7 @@ Transports are different methods of logging. You can add them to your logger by 
 |   Transport name       |   Description |
 |------------------------|---------------|
 |   ConsoleTransport     |  This transport will log the desired messages to the command line, with additional options   |
-|   FileTransport [W.I.P]|  This transport will save your logs in a file    |
+|   FileTransport        |  This transport will save your logs in a file    |
 |   WebTransport [W.I.P] |  This transport will send `PUT` requests containing you logs, to save on an external server  |
 
 #### Using `FileTransport`
