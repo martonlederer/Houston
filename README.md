@@ -104,7 +104,7 @@ The format of the logs. Can be `text` or `json`
 #### `prefix: Prefix`
 The prefix of your logs. Can be `TimePrefix` (prints the time), `TextPrefix` (a custom prefix by you) or `NoPrefix` (no prefix before logs)
 
-You can also create your own `Prefix` implementation by importing `Prefix` from `main.ts` and extending it.
+You can also create your own `Prefix` implementation by importing `Prefix` from `mod.ts` and extending it.
 
 ###### Modifying the `TimePrefix` date format
 You can set the used time format for the `TimePrefix` to `TimeFormat.American` or `TimeFormat.European`
