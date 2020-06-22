@@ -20,9 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59f7bbec-04d0-4ddf-9e26-2e55bdeb4818" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/egg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/egg.json" beforeDir="false" afterPath="$PROJECT_DIR$/egg.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +60,11 @@
       <option name="presentableId" value="Default" />
       <updated>1592496221734</updated>
       <workItem from="1592496225795" duration="1707000" />
+      <workItem from="1592697045421" duration="669000" />
+      <workItem from="1592731051915" duration="1198000" />
+      <workItem from="1592761045363" duration="1021000" />
+      <workItem from="1592770175095" duration="101000" />
+      <workItem from="1592820896457" duration="21000" />
     </task>
     <servers />
   </component>
@@ -76,8 +81,15 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2023" y="371" width="432" height="480" key="FileChooserDialogImpl" timestamp="1592770274798">
+      <screen x="1280" y="0" width="1920" height="1200" />
+    </state>
+    <state x="2023" y="371" width="432" height="480" key="FileChooserDialogImpl/1280.0.1920.1200/0.88.1280.1024@1280.0.1920.1200" timestamp="1592770274798" />
   </component>
 </project>

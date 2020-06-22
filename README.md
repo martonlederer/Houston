@@ -1,4 +1,5 @@
 # Houston
+[![nest badge](https://nest.land/badge.svg)](https://nest.land/package/Houston)
 An advanced [Deno](https://deno.land) logger, with no dependencies.
 
 ## Usage
@@ -7,7 +8,7 @@ You can create really simple or very advanced and complicated, informative logs 
 ### Importing the module
 ```ts
 //you can import all required types, etc. from the mod.ts
-import { Houston } from 'https://deno.land/x/houston/mod.ts'
+import { Houston } from 'https://x.nest.land/Houston@<VERSION>/mod.ts'
 ```
 
 ### Creating a basic logger
@@ -55,7 +56,7 @@ Transports are different methods of logging. You can add them to your logger by 
 |------------------------|---------------|
 |   ConsoleTransport     |  This transport will log the desired messages to the command line, with additional options   |
 |   FileTransport        |  This transport will save your logs in a file    |
-|   WebTransport [W.I.P] |  This transport will send `PUT` requests containing you logs, to save on an external server  |
+|   WebTransport [W.I.P] |  This transport will send `PUT` requests containing your logs, to save on an external server  |
 
 #### Using `FileTransport`
 When you're using a FileTransport, an additional param is required to operate, the `logFolder` param.

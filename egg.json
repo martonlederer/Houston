@@ -3,12 +3,13 @@
   "name": "Houston",
   "description": "An advanced Deno logger, with no dependencies",
   "stable": true,
+  "repository": "https://github.com/MartonDev/Houston",
+  "version": "1.0.0",
   "files": [
 
     "./mod.ts",
-    "./README.md",
-    "./screenshots/*",
-    "./src/*/**"
+    "./src/**/*",
+    "./README.md"
 
   ]
 
