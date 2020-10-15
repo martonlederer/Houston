@@ -6,7 +6,7 @@
  * https://marton.lederer.hu
  */
 
-import { Prefix } from './lib/prefix/Prefix.ts'
+import type { Prefix } from './lib/prefix/Prefix.ts'
 
 /*
 *
